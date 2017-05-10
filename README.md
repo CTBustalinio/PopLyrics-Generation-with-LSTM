@@ -1,0 +1,3 @@
+Generate Lyrics for Pop Songs
+
+Trained with Max Martin songs...

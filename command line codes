@@ -1,0 +1,49 @@
+ec2 dl ami:
+ami-e7c96af1
+
+sudo apt-get update
+
+conda install:
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+
+bash Miniconda3-latest-Linux-x86_64.sh
+
+
+
+Jupyter notebook:
+jupyter notebook --generate-config
+which jupyter
+
+nano jupyter_notebook.config.py
+
+# Set options for certfile, ip, password, and toggle off
+# browser auto-opening
+#c.NotebookApp.certfile = u'/absolute/path/to/your/certificate/mycert.pem'
+#c.NotebookApp.keyfile = u'/absolute/path/to/your/certificate/mykey.key'
+# Set ip to '*' to bind on all interfaces (ips) for the public server
+c.NotebookApp.ip = '*'
+#c.NotebookApp.password = u'sha1:bcd259ccf...<your hashed password here>'
+c.NotebookApp.open_browser = True
+
+# It is a good idea to set a known, fixed port for server access
+c.NotebookApp.port = 8888
+
+
+Create conda env:
+## restart terminal
+conda env create -f environment.yml
+activate: source activate dl
+
+download all from server;
+scp -r -i ~/.ssh/DSCI6007_ctb.pem
+  ec2-54-91-240-23.compute-1.amazonaws.com:~/dl_project
+  ~/Desktop/Camille/dl\ project/text\ predict/gpu/
+
+
+
+From Andrej Karpathy:
+1000-2000 + iters
+huge dataset
+sequence length = 100
+
+http://karpathy.github.io/2015/05/21/rnn-effectiveness/
